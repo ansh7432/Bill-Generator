@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dual Bill Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dual Bill Generator</h1>
+        
+        <!-- First Customer Section -->
+        <div class="bill-section">
+            <h2>First Customer</h2>
+            <label for="customer-name-1">Customer Name:</label>
+            <input type="text" id="customer-name-1" placeholder="Enter first customer's name" />
+            <table id="items-table-1">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price per Unit</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" placeholder="Enter product name" /></td>
+                        <td><input type="number" placeholder="Enter quantity" oninput="calculateTotal(this)" /></td>
+                        <td><input type="number" placeholder="Enter price" oninput="calculateTotal(this)" /></td>
+                        <td><input type="text" readonly /></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button onclick="addRow('items-table-1')">Add More Products</button>
+        </div>
+        
+        <!-- Second Customer Section -->
+        <div class="bill-section">
+            <h2>Second Customer</h2>
+            <label for="customer-name-2">Customer Name:</label>
+            <input type="text" id="customer-name-2" placeholder="Enter second customer's name" />
+            <table id="items-table-2">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price per Unit</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" placeholder="Enter product name" /></td>
+                        <td><input type="number" placeholder="Enter quantity" oninput="calculateTotal(this)" /></td>
+                        <td><input type="number" placeholder="Enter price" oninput="calculateTotal(this)" /></td>
+                        <td><input type="text" readonly /></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button onclick="addRow('items-table-2')">Add More Products</button>
+        </div>
+        
+        <button onclick="generatePDF()" class="generate-btn">Generate Combined PDF</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
